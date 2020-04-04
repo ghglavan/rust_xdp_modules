@@ -22,7 +22,7 @@ pub type RBpfMapUpdateElem = extern "C" fn(
     u64,
 ) -> i32;
 
-pub type Rbpf_spin_lock = extern "C" fn(*mut bpf_spin_lock) -> i32;
+pub type RBpfSpinLock = extern "C" fn(*mut bpf_spin_lock) -> i32;
 
 pub type RBpfSpinUnLock = extern "C" fn(*mut bpf_spin_lock) -> i32;
 
@@ -128,7 +128,7 @@ pub extern "C" fn xdp_printk(_ctx: xdp_md) -> i32 {
     let bpf_trace_printk: RBpfTracePrintk = unsafe { transmute::<u64, RBpfTracePrintk>(6) };
     let bpf_map_lookup_elem: RBpfMapLookupElem = unsafe { transmute::<u64, RBpfMapLookupElem>(1) };
     let bpf_map_update_elem: RBpfMapUpdateElem = unsafe { transmute::<u64, RBpfMapUpdateElem>(2) };
-    let bpf_spin_lock: Rbpf_spin_lock = unsafe { transmute::<u64, Rbpf_spin_lock>(93) };
+    let bpf_spin_lock: RBpfSpinLock = unsafe { transmute::<u64, RBpfSpinLock>(93) };
     let bpf_spin_unlock: RBpfSpinUnLock = unsafe { transmute::<u64, RBpfSpinUnLock>(94) };
 
     let msg = *b"helloo %d\n\0";

@@ -8,3 +8,5 @@ edition = "2018"
 debug = true
 
 [dependencies]
+bpf-helpers = { path = "bpf-helpers", version = "0.1.0" }
+net-helpers = { path = "net-helpers", version = "0.1.0" }

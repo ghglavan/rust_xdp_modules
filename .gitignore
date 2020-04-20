@@ -1,6 +1,10 @@
 /target
 **/*.rs.bk
 
+/net-helpers/target
+/net-helpers/Cargo.lock
+/bpf-helpers/target
+/bpf-helpers/Cargo.lock
 
 #Added by cargo
 #

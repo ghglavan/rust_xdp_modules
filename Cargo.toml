@@ -3,10 +3,3 @@ name = "rust_xdp_modules"
 version = "0.1.0"
 authors = ["gglavan <george.glavan27@gmail.com>"]
 edition = "2018"
-
-[profile.release]
-debug = true
-
-[dependencies]
-bpf-helpers = { path = "bpf-helpers", version = "0.1.0" }
-net-helpers = { path = "net-helpers", version = "0.1.0" }

@@ -1,0 +1,11 @@
+[package]
+name = "tail-call"
+version = "0.1.0"
+authors = ["gglavan <george.glavan27@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bpf-helpers = { path = "../bpf-helpers", version = "0.1.0" }
+net-helpers = { path = "../net-helpers", version = "0.1.0" }

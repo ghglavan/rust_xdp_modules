@@ -1,8 +1,23 @@
 #!/bin/sh
+
+set -e
+
+if [[ $# -ne 1 ]] ; then
+    echo "Usage ./build.sh lib_name"
+    exit 1
+fi
+
+lib=$1
+
+lib_name=${lib//[-]/_}
+
 rm -rf target
-cargo rustc --release -- --emit=llvm-ir
-mkdir -p target/bpf
-cp target/release/deps/rust_xdp_modules-*.ll target/bpf/rust_xdp_modules.ll
-cargo rustc --release -- --emit=llvm-bc
-cp target/release/deps/rust_xdp_modules-*.bc target/bpf/rust_xdp_modules.bc
-llc target/bpf/rust_xdp_modules.bc -march=bpf -filetype=obj -o target/bpf/rust_xdp_modules.o
+mkdir target
+mkdir target/bpf
+cd ${lib}
+
+rm -rf target
+cargo rustc --lib --release -- --emit=llvm-bc
+cp target/release/deps/${lib_name}-*.bc ../target/bpf/${lib_name}.bc
+cd ..
+llc target/bpf/${lib_name}.bc -march=bpf -filetype=obj -o target/bpf/${lib_name}.o

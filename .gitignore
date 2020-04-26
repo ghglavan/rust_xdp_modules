@@ -5,6 +5,11 @@
 /net-helpers/Cargo.lock
 /bpf-helpers/target
 /bpf-helpers/Cargo.lock
+/main-module/target
+/main-module/Cargo.lock
+/tail-call/target
+/tail-call/Cargo.lock
+
 
 #Added by cargo
 #
